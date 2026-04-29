@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Built For Adam Enfroy · AG1 Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0805;--bg-2:#110e0a;--surface:#1a160f;--surface-2:#221c12;--line:rgba(201,151,58,.15);--line-2:rgba(201,151,58,.3);--text:#f8f3e8;--muted:#a69885;--gold:#c9973a;--gold-2:#e2b96a;--gold-3:#f0d79a;--red:#c97a3a}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:radial-gradient(circle,rgba(201,151,58,.025) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-30%;right:-10%;width:70%;height:80%;background:radial-gradient(circle,rgba(201,151,58,.07) 0%,transparent 60%);pointer-events:none;z-index:0}
+.container{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.container-narrow{max-width:820px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+nav{padding:24px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(10,8,5,.94);backdrop-filter:blur(14px);z-index:100}
+.nav-inner{display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;font-size:18px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:.18em;text-transform:uppercase}
+.nav-cta{padding:10px 22px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-2) 100%);color:#0a0805;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px}
+section{padding:80px 0}
+.hero{padding:100px 0 60px;text-align:center}
+.eyebrow{display:inline-block;padding:6px 16px;background:rgba(201,151,58,.1);border:1px solid rgba(201,151,58,.3);border-radius:24px;font-size:12px;font-weight:600;color:var(--gold-2);letter-spacing:.2em;text-transform:uppercase;margin-bottom:28px}
+h1{font-size:clamp(40px,5.6vw,64px);font-weight:800;line-height:1.06;letter-spacing:-.03em;margin-bottom:24px}
+h1 em{font-style:normal;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-3) 50%,var(--gold-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:clamp(28px,3.8vw,40px);font-weight:700;line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.section-sub{color:var(--muted);font-size:18px;margin-bottom:48px;max-width:680px}
+h3{font-size:22px;font-weight:700;color:var(--text);margin-bottom:10px}
+h4{font-size:14px;color:var(--gold-2);text-transform:uppercase;letter-spacing:.14em;margin:24px 0 12px;font-weight:700}
+p{color:var(--muted);font-size:17px;max-width:680px}
+.hero p{font-size:19px;margin:0 auto 40px;color:var(--muted)}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.meta-item{text-align:center}
+.meta-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.15em;margin-bottom:10px}
+.meta-value{font-size:20px;color:var(--text);font-weight:700;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.prose p{margin-bottom:18px;font-size:17px}
+.prose p:last-child{margin-bottom:0}
+.prose strong{color:var(--text);font-weight:600}
+.prose blockquote{margin:24px 0;padding:20px 26px;background:rgba(201,151,58,.06);border-left:3px solid var(--gold);border-radius:0 10px 10px 0;font-size:18px;color:var(--text);font-style:italic;line-height:1.55}
+.prose blockquote .quote-attr{display:block;margin-top:10px;font-size:13px;color:var(--gold-2);font-style:normal;letter-spacing:.05em}
+.signature{margin-top:32px;font-size:15px;color:var(--gold-2);font-style:italic}
+.gap-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:8px}
+.gap-card{background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:14px;padding:32px;transition:.3s}
+.gap-card:hover{border-color:var(--line-2)}
+.gap-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:14px}
+.gap-tag.critical{background:rgba(201,122,58,.15);color:var(--red);border:1px solid rgba(201,122,58,.3)}
+.gap-tag.high{background:rgba(201,151,58,.12);color:var(--gold-2);border:1px solid rgba(201,151,58,.3)}
+.gap-card h3{margin-bottom:14px}
+.gap-card p{font-size:16px;margin-bottom:14px}
+.gap-card .fix{padding-top:14px;border-top:1px solid var(--line);font-size:15px}
+.gap-card .fix strong{color:var(--gold-2);text-transform:uppercase;letter-spacing:.1em;font-size:12px;display:block;margin-bottom:6px}
+.market-table{display:flex;flex-direction:column;gap:14px;margin-top:8px}
+.market-row{display:grid;grid-template-columns:200px 1fr;gap:32px;padding:24px 28px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:12px;align-items:start}
+.market-name{font-weight:700;color:var(--text);font-size:17px}
+.market-price{font-size:13px;color:var(--gold-2);margin-top:4px;letter-spacing:.05em}
+.market-note{font-size:15px;color:var(--muted);line-height:1.6}
+.market-callout{margin-top:24px;padding:24px 28px;background:rgba(201,151,58,.06);border:1px solid var(--line-2);border-radius:12px;font-size:16px;color:var(--text)}
+.market-callout strong{color:var(--gold-2)}
+.phase-block{display:grid;grid-template-columns:120px 1fr;gap:32px;padding:36px 0;border-bottom:1px solid var(--line)}
+.phase-block:last-child{border-bottom:0}
+.phase-num{font-family:monospace;font-size:14px;color:var(--gold-2);letter-spacing:.15em;font-weight:700}
+.phase-num .month{display:block;color:var(--muted);font-size:11px;margin-top:6px;letter-spacing:.1em}
+.phase-content h3{margin-bottom:14px;font-size:24px}
+.phase-content ul{list-style:none;padding:0;margin:14px 0}
+.phase-content li{padding:6px 0 6px 22px;position:relative;color:var(--muted);font-size:16px}
+.phase-content li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;position:absolute;left:0;top:14px}
+.phase-content .rev-line{margin-top:18px;padding:14px 18px;background:rgba(201,151,58,.06);border-left:2px solid var(--gold);border-radius:0 8px 8px 0;font-size:15px;color:var(--text)}
+.phase-content .rev-line strong{color:var(--gold-2);text-transform:uppercase;letter-spacing:.1em;font-size:11px;display:block;margin-bottom:4px;font-weight:700}
+.rev-table{margin-top:8px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line-2);border-radius:14px;padding:32px;overflow:hidden}
+.rev-row{display:grid;grid-template-columns:1fr auto;gap:32px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.rev-row:last-of-type{border-bottom:0}
+.rev-stream{color:var(--muted);font-size:16px}
+.rev-stream strong{color:var(--text);font-weight:600;display:block;margin-bottom:2px}
+.rev-amount{font-size:22px;font-weight:700;color:var(--gold-2);font-family:monospace;white-space:nowrap}
+.rev-total{margin-top:18px;padding-top:24px;border-top:2px solid var(--line-2);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:baseline}
+.rev-total-label{font-size:14px;color:var(--gold-2);text-transform:uppercase;letter-spacing:.15em;font-weight:700}
+.rev-total-amount{font-size:32px;font-weight:800;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-3) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:monospace;white-space:nowrap}
+.rev-note{margin-top:24px;padding:20px 24px;background:rgba(201,151,58,.06);border:1px solid var(--line);border-radius:10px;font-size:15px;color:var(--text)}
+.rev-note strong{color:var(--gold-2)}
+.rev-caveat{margin-top:14px;padding:14px 18px;border:1px dashed var(--line-2);border-radius:8px;font-size:13px;color:var(--muted);font-family:'Inter',sans-serif}
+.rev-caveat strong{color:var(--gold-2);text-transform:uppercase;letter-spacing:.12em;font-size:11px;display:block;margin-bottom:4px}
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.proof-card{padding:36px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:14px}
+.proof-card h3{font-size:20px;margin-bottom:6px}
+.proof-card .role{font-size:12px;color:var(--gold-2);letter-spacing:.15em;text-transform:uppercase;margin-bottom:18px;font-weight:700}
+.proof-card p{font-size:15px;line-height:1.7}
+.offer-block{padding:48px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line-2);border-radius:18px}
+.offer-block h3{font-size:24px;margin-bottom:8px}
+.offer-block .scope-intro{color:var(--muted);font-size:16px;margin-bottom:28px}
+.scope-list{list-style:none;padding:0;margin:0}
+.scope-list li{padding:14px 0 14px 36px;position:relative;color:var(--text);font-size:16px;border-bottom:1px solid var(--line)}
+.scope-list li:last-child{border-bottom:0}
+.scope-list li::before{content:'';width:18px;height:18px;border:1.5px solid var(--gold);border-radius:50%;position:absolute;left:0;top:18px;background:rgba(201,151,58,.08)}
+.scope-list li::after{content:'';width:6px;height:10px;border-right:2px solid var(--gold-2);border-bottom:2px solid var(--gold-2);transform:rotate(45deg);position:absolute;left:6px;top:20px}
+.offer-block .price-note{margin-top:32px;padding-top:28px;border-top:1px solid var(--line-2);font-size:15px;color:var(--gold-2);text-align:center}
+.faq-item{border-bottom:1px solid var(--line);padding:0}
+.faq-q{padding:24px 0;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;font-size:18px;font-weight:600;color:var(--text);transition:.2s}
+.faq-q:hover{color:var(--gold-2)}
+.faq-toggle{width:24px;height:24px;border-radius:50%;border:1px solid var(--line-2);position:relative;flex-shrink:0;transition:.3s}
+.faq-toggle::before,.faq-toggle::after{content:'';position:absolute;background:var(--gold-2);top:50%;left:50%;transition:.3s}
+.faq-toggle::before{width:10px;height:1.5px;transform:translate(-50%,-50%)}
+.faq-toggle::after{width:1.5px;height:10px;transform:translate(-50%,-50%)}
+.faq-item.open .faq-toggle::after{opacity:0}
+.faq-a{max-height:0;overflow:hidden;transition:.4s}
+.faq-item.open .faq-a{max-height:600px;padding-bottom:24px}
+.faq-a p{font-size:16px;color:var(--muted);max-width:none}
+.cta-section{background:linear-gradient(135deg,rgba(201,151,58,.1) 0%,rgba(226,185,106,.04) 100%);border:1px solid rgba(201,151,58,.3);border-radius:24px;padding:80px 60px;text-align:center;margin:40px 0 60px}
+.cta-section h2{max-width:620px;margin:0 auto 20px}
+.cta-section p{margin:0 auto 36px;max-width:560px;font-size:17px}
+.cta-primary{display:inline-block;padding:20px 44px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-2) 100%);color:#0a0805;text-decoration:none;border-radius:12px;font-weight:700;font-size:16px;box-shadow:0 12px 40px rgba(201,151,58,.3);transition:.2s}
+.cta-primary:hover{transform:translateY(-2px)}
+.cta-sign{margin-top:28px;font-size:14px;color:var(--gold-2);font-style:italic}
+.hero-cta-row{margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-outline{display:inline-block;padding:18px 36px;background:transparent;color:var(--gold-2);text-decoration:none;border:1px solid var(--line-2);border-radius:12px;font-weight:600;font-size:15px;transition:.2s}
+.cta-outline:hover{border-color:var(--gold-2)}
+.footer{padding:48px 0;border-top:1px solid var(--line);text-align:center}
+.footer p{margin:0 auto;font-size:13px;color:var(--muted);letter-spacing:.05em}
+@media(max-width:768px){
+.meta-grid{grid-template-columns:1fr}
+.cta-section{padding:50px 24px}
+.market-row{grid-template-columns:1fr;gap:8px}
+.phase-block{grid-template-columns:1fr;gap:8px}
+.proof-grid{grid-template-columns:1fr}
+.offer-block{padding:32px 24px}
+section{padding:60px 0}
+}
+.moat-callout{margin-top:32px;padding:32px 36px;background:linear-gradient(135deg,rgba(201,151,58,.08) 0%,rgba(226,185,106,.03) 100%);border:1px solid var(--line-2);border-radius:14px}
+.moat-eyebrow{font-size:11px;color:var(--gold-2);text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:12px}
+.moat-callout p{font-size:18px;color:var(--text);margin:0;max-width:none;line-height:1.6}
+.moat-callout p strong{color:var(--gold-2)}
+.agenda-block{padding:40px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:14px}
+.agenda-item{display:grid;grid-template-columns:90px 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+.agenda-item:last-child{border-bottom:0;padding-bottom:0}
+.agenda-item:first-child{padding-top:0}
+.agenda-time{font-family:monospace;color:var(--gold-2);font-weight:700;font-size:14px;letter-spacing:.05em;padding-top:4px}
+.agenda-content h4{font-size:16px;color:var(--text);text-transform:none;letter-spacing:0;margin:0 0 6px;font-weight:600}
+.agenda-content p{color:var(--muted);font-size:14px;margin:0;max-width:none;line-height:1.5}
+.contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.contrast-card{padding:36px;background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:14px}
+.contrast-card.current{opacity:.7}
+.contrast-card.future{border-color:var(--line-2);background:linear-gradient(180deg,rgba(201,151,58,.06) 0%,var(--bg-2) 100%)}
+.contrast-tag{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;border-radius:4px;margin-bottom:14px;display:inline-block}
+.contrast-card.current .contrast-tag{background:rgba(166,152,133,.15);color:var(--muted);border:1px solid rgba(166,152,133,.3)}
+.contrast-card.future .contrast-tag{background:rgba(201,151,58,.15);color:var(--gold-2);border:1px solid rgba(201,151,58,.3)}
+.contrast-card h3{margin-bottom:18px;font-size:20px}
+.contrast-card ul{list-style:none;padding:0;margin:0}
+.contrast-card li{padding:8px 0 8px 22px;position:relative;color:var(--muted);font-size:15px;line-height:1.6}
+.contrast-card.current li::before{content:'';width:6px;height:6px;background:var(--muted);border-radius:50%;position:absolute;left:0;top:14px;opacity:.5}
+.contrast-card.future li::before{content:'';width:6px;height:6px;background:var(--gold);border-radius:50%;position:absolute;left:0;top:14px}
+.premium-table{margin-top:24px;border-color:var(--line-2)!important;background:linear-gradient(180deg,rgba(201,151,58,.04) 0%,var(--bg-2) 100%)!important}
+.premium-eyebrow{display:inline-block;padding:5px 14px;background:rgba(201,151,58,.15);border:1px solid var(--line-2);border-radius:24px;font-size:11px;font-weight:700;color:var(--gold-2);letter-spacing:.18em;text-transform:uppercase;margin-bottom:18px}
+.asset-table{background:linear-gradient(180deg,var(--surface) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:14px;padding:8px 32px;margin-top:8px}
+.asset-row{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:24px;padding:18px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.asset-row:last-child{border-bottom:0}
+.asset-row.asset-header{padding:24px 0 18px}
+.asset-col-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.15em;font-weight:700}
+.asset-col-label.asset-built-label{color:var(--gold-2)}
+.asset-cat{font-size:14px;color:var(--muted);font-weight:500}
+.asset-val{font-size:17px;font-weight:600}
+.asset-today{color:var(--muted);opacity:.75}
+.asset-built{color:var(--gold-2)}
+.anti-hype{margin-top:32px;padding:32px 36px;background:rgba(0,0,0,.18);border:1px dashed var(--line-2);border-radius:14px}
+.anti-hype-eyebrow{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.18em;font-weight:700;margin-bottom:18px}
+.anti-hype-list{list-style:none;padding:0;margin:0 0 20px}
+.anti-hype-list li{padding:6px 0 6px 26px;position:relative;color:var(--muted);font-size:15px;line-height:1.6}
+.anti-hype-list li::before{content:'×';position:absolute;left:0;top:2px;color:var(--red);font-size:20px;font-weight:700;line-height:1}
+.anti-hype p{font-size:15px;color:var(--text);margin:0;max-width:none;line-height:1.7}
+.anti-hype p strong{color:var(--gold-2)}
+.call-agenda{text-align:left;max-width:520px;margin:0 auto 32px;display:grid;gap:14px}
+.call-agenda-item{display:grid;grid-template-columns:32px 1fr;gap:16px;align-items:start}
+.call-agenda-num{font-family:monospace;color:var(--gold-2);font-weight:700;font-size:14px;padding-top:2px}
+.call-agenda-text{color:var(--text);font-size:15px;line-height:1.6}
+@media(max-width:768px){.contrast-grid{grid-template-columns:1fr}.agenda-block{padding:28px 20px}.agenda-item{grid-template-columns:1fr;gap:4px}.moat-callout{padding:24px}.asset-table{padding:8px 20px}.asset-row{grid-template-columns:1fr;gap:6px;padding:14px 0}.asset-row.asset-header{display:none}.asset-cat{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold-2)}.anti-hype{padding:24px}}
+.floating-cta{position:fixed;bottom:24px;right:24px;padding:16px 28px;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-2) 100%);color:#0a0805;text-decoration:none;border-radius:12px;font-weight:700;font-size:14px;box-shadow:0 12px 40px rgba(201,151,58,.4);z-index:1000;transition:.2s}
+.floating-cta:hover{transform:translateY(-2px)}
+@media(max-width:768px){.floating-cta{bottom:16px;right:16px;padding:14px 22px;font-size:13px}}
+.results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:8px}
+.result-card{padding:32px 24px;background:linear-gradient(180deg,rgba(201,151,58,.08) 0%,var(--bg-2) 100%);border:1px solid var(--line-2);border-radius:14px;text-align:center}
+.result-stat{font-size:36px;font-weight:800;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-3) 50%,var(--gold-2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-family:monospace;letter-spacing:-.02em;margin-bottom:10px;line-height:1.05}
+.result-label{font-size:13px;color:var(--muted);line-height:1.5;letter-spacing:.02em}
+.proof-disclaimer{margin-top:24px;padding:16px 22px;border:1px dashed var(--line-2);border-radius:10px;font-size:13px;color:var(--muted);text-align:center;letter-spacing:.02em}
+.proof-disclaimer strong{color:var(--gold-2);text-transform:uppercase;letter-spacing:.12em;font-size:11px}
+@media(max-width:768px){.results-grid{grid-template-columns:1fr 1fr}.result-stat{font-size:28px}}
+.reveal{opacity:0;transform:translateY(30px);transition:.8s}
+.reveal.in{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+<nav>
+<div class="container nav-inner">
+<div class="logo">AG1 Consulting</div>
+<a href="https://calendly.com/ag-copy/call-with-andrei" class="nav-cta" target="_blank">Book A Call</a>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container">
+<div class="eyebrow reveal">Built For Adam Enfroy</div>
+<h1 class="reveal">Built For <em>Adam Enfroy</em><br>AG1 Consulting</h1>
+<p class="reveal">193K YouTube subscribers. 102K Instagram. ~412K monthly organic visits to adamenfroy.com. The AI Income Blueprint at $747 is selling steady through the Skool community of 4,700+ paid members, the brand is systems-first and anti-passion-blogging, the press footprint runs through Forbes, Foundr, Business Insider, and Yahoo Finance. The audience is real. The ladder above the AI Income Blueprint is not yet built.</p>
+<div class="meta-grid reveal">
+<div class="meta-item"><div class="meta-label">YouTube subs</div><div class="meta-value">193K+</div></div>
+<div class="meta-item"><div class="meta-label">Instagram</div><div class="meta-value">102K+</div></div>
+<div class="meta-item"><div class="meta-label">Monthly organic visits</div><div class="meta-value">~412K</div></div>
+<div class="meta-item"><div class="meta-label">Cohort tier opportunity</div><div class="meta-value">$540K+/yr</div></div>
+</div>
+<div class="hero-cta-row reveal">
+<a href="https://andrei170.github.io/adam-enfroy-mastermind/" target="_blank" class="cta-primary" style="padding:18px 40px;font-size:16px;border-radius:12px;box-shadow:0 12px 40px rgba(201,151,58,.3)">See The Live Demo</a>
+<a href="https://calendly.com/ag-copy/call-with-andrei" target="_blank" class="cta-outline">Book A Call</a>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container-narrow"><h2 class="reveal">Why This Page Exists</h2>
+<div class="prose reveal">
+<p>You've already done the hard part. Most operators in the AI-blogging education space don't have a brand built on systems-first positioning, an audience the size of a mid-cap publisher's reach, a paid product that converts without high-pressure sales, and a Skool community of 4,700+ paying members. You do.</p>
+<p>The AI Income Blueprint sits at $747 on Skool. Direct community-checkout, no application gate, no phone close. It's a rebrand of Blog Growth Engine, with 8 phases, 37 video lessons, 15 AI frameworks, and weekly live coaching with you. YouTube ships AI and blogging tutorials at <strong>193K subscribers</strong>. The blog ships ~412K monthly US organic visits with seven-figure commercial value per third-party SEO tools. Instagram @adamenfroy sits at 102K. The press footprint runs Forbes, Foundr, Business Insider, Yahoo Finance, US News, and Entrepreneur. The brand is locked in: systems-first, anti-passion-blogging, calm-quiet-path-to-$10K, AI-native rather than SEO-native.</p>
+<p>So this page is not a "here's how to build a blogging audience" pitch. You're past that.</p>
+<blockquote>"Calm, quiet path to $10k/month. No content and no audience required."<span class="quote-attr">- adamenfroy.com Income Launch Plan opt-in, your own words</span></blockquote>
+<p>That positioning is the moat. The pitch this page makes is that the ladder above the AI Income Blueprint has unfilled tiers, and three specific funnel leak points are observable from outside.</p>
+<p>This page is the version that lands when the brand is already built. After studying the public surfaces (adamenfroy.com, the launchto10k.com sales path, the incomeblueprint.ai webinar funnel, the Skool community, the YouTube channel cadence, the press features, and the third-party reviewer commentary on AI Income Blueprint), three specific leak points are visible from outside. None of them are foundation-level. All three are the kind of revenue lift that compounds inside a brand already running at 193K+ subscriber scale and 4,700+ paying Skool members.</p>
+<p>And here's the strategic timing. The AI-blogging education category is now contested by every $497 newer creator citing your Income Reports and your "$4.5M in 2022" case-study video back at you. The window for the operator who built the systems-first positioning, the Forbes-and-Business-Insider press footprint, and the largest paid Skool community in the niche to capture the premium tier above all of them is open right now. <strong>Operators with brand-scale reach get to charge a different number than operators copying the niche.</strong></p>
+<p>The build below is sized for that. Conservative numbers. Phased over four months. Built around the funnel you already run, not against it.</p>
+<div class="signature">- Andrei | AG1 Consulting</div>
+</div>
+</div>
+</section>
+
+<section style="background:linear-gradient(180deg,transparent 0%,rgba(201,151,58,.03) 50%,transparent 100%)">
+<div class="container">
+<div class="eyebrow reveal">The Leak Points</div>
+<h2 class="reveal">Three Places The Funnel Currently Underconverts</h2>
+<p class="section-sub reveal">All publicly observable. Nothing fabricated about backend systems we can't see.</p>
+
+<div class="gap-grid">
+<div class="gap-card reveal">
+<span class="gap-tag critical">Critical</span>
+<h3>No Homepage VSL Bridging YouTube Into The Skool Checkout</h3>
+<p>The adamenfroy.com homepage is long-form text plus press logos plus the repeated "Get Your Income Launch Plan" CTA. No embedded video. No 5-12 minute walkthrough explaining the AI Income Blueprint methodology, the income proof, the curriculum, and the close. Cold traffic from <strong>193K YouTube subscribers and 102K IG followers</strong> arrives on the homepage and either opts into the free Income Launch Plan or clicks through to launchto10k.com/start. The video bridge currently only exists inside the gated 80-90 minute masterclass at incomeblueprint.ai, which is a high-friction commit. The operators who convert YouTube traffic at scale (Pat Flynn with the SPI walkthrough, Authority Hacker with their Authority Site System video gate, every modern course funnel running an indoctrination layer) all run a pre-purchase video on the homepage between cold traffic and the commit. Yours is missing.</p>
+<div class="fix"><strong>The Lift</strong>An 8-12 minute homepage VSL filmed in your existing studio aesthetic. Calm-quiet-path opening, the systems-first thesis, three AI Income Blueprint student case studies, the curriculum walk-through, and the natural close into the Income Launch Plan opt-in or directly into the masterclass at incomeblueprint.ai. Lift compounds against every YouTube viewer who lands on adamenfroy.com from a video CTA, every IG bio click, and every press-driven search visitor.</p></div>
+</div>
+
+<div class="gap-card reveal">
+<span class="gap-tag critical">Critical</span>
+<h3>No Premium Tier Above The $747 AI Income Blueprint</h3>
+<p>The current ladder ends at the $747 AI Income Blueprint on Skool. There's no application-only cohort, no in-person event tier, no published $10K-$30K mastermind. AI Income Blueprint alumni who have cleared the curriculum, hit $5K-$10K/month from a live property, and want a senior tier with direct access to you have nowhere to go inside the brand. The Skool community has 4,700+ paying members and weekly coaching calls, but no upgrade path beyond it. The operators who run senior tiers above their flagship academy (Authority Hacker Pro at $2,597, Russell Brunson's Inner Circle at $25K/year, Tony Robbins Business Mastery at $5-10K, Steve Larsen's masterminds at $25-50K+) all keep the senior tier visible and pre-priced. Yours is empty, and the warmest list for it (4,700+ Skool members who already paid $747) currently has no upgrade path.</p>
+<div class="fix"><strong>The Lift</strong>The 7-Figure Blogger Operator Cohort. Quarterly intakes of 6-8 verified-profitable AI Income Blueprint alumni at $20K-$30K per seat. Two-day in-person intake plus 90-day implementation cohort. Application-only with a $5K+/month live-property gate. Sells warm off the Skool alumni base. Produces case studies that compound back into AI Income Blueprint marketing.</div>
+</div>
+
+<div class="gap-card reveal">
+<span class="gap-tag high">High Impact</span>
+<h3>The TOFU Funnel Is Fragmented Across Three Domains With Inconsistent Pricing</h3>
+<p>Visitors hit different prices ($747 on Skool direct versus ~$997 through the webinar funnel) depending on entry point. The Income Launch Plan (free PDF) and the AI Masterclass (free 80-90 min webinar at incomeblueprint.ai) are pitched as separate lead magnets on the same homepage but functionally compete for the same opt-in. There's no single dedicated TOFU page. Reviewers (Drew's Review, Demand Sage, Hustle Nerds) explicitly call out the price-mismatch friction across adamenfroy.com, incomeblueprint.ai, and launchto10k.com. The operators who scale email lists from social audiences (Authority Hacker with their single-page lead magnet, Pat Flynn with the SPI funnel, Income School with the unified Project 24 page) all run a single dedicated TOFU page off the bio link, not a competing tree of three destinations and two prices.</p>
+<div class="fix"><strong>The Lift</strong>A single consolidated TOFU funnel. One lead magnet (Income Launch Plan rolled into the masterclass register), one consistent published price for the AI Income Blueprint, and one dedicated landing page (adamenfroy.com/start or /blueprint) optimised purely for cold IG, YouTube, and press-driven traffic. Captures the slice of 193K YouTube and 102K IG who would convert into email but currently land on a fragmented multi-domain funnel and bounce on price comparison.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">Market Context</div>
+<h2 class="reveal">Where Operators At Your Tier Are Already Pricing</h2>
+<p class="section-sub reveal">Four peers running flagship-to-mastermind ladders in adjacent or comparable niches. The senior tier is established. None of them publicly run your combination of 193K YouTube subs, ~412K monthly organic visits, 4,700+ Skool members, and a Forbes-Business-Insider-Yahoo-Finance press footprint.</p>
+
+<div class="market-table">
+<div class="market-row reveal">
+<div>
+<div class="market-name">Authority Hacker (Pro)</div>
+<div class="market-price">Authority Hacker Pro $2,597 one-time · TASS 3.0 $1,499 one-time</div>
+</div>
+<div class="market-note">Closest niche peer. Authority Hacker Pro is launch-window-only with scarcity gating. Direct comp on offer architecture: free content into a paid academy into a higher-priced senior course. Useful structural benchmark, but Authority Hacker has no public $10K+ cohort. Your subscriber base sits roughly comparable to theirs, with a stronger AI-native positioning that supports a tier above Authority Hacker Pro at $2,597.</div>
+</div>
+
+<div class="market-row reveal">
+<div>
+<div class="market-name">Russell Brunson (Inner Circle)</div>
+<div class="market-price">Inner Circle $25,000/year · application-only</div>
+</div>
+<div class="market-note">Different niche specificity (funnels and ClickFunnels ecosystem versus your AI-blogging), same architecture: free content into a paid course into an application-gated $25K/year mastermind. Proves the $25K cohort price holds in the broader online-business education space. Brunson runs at brand reach roughly comparable to yours when measured by combined audience and press footprint.</div>
+</div>
+
+<div class="market-row reveal">
+<div>
+<div class="market-name">Tony Robbins (Business Mastery)</div>
+<div class="market-price">Business Mastery $5,000-$10,000+ · in-person event</div>
+</div>
+<div class="market-note">Different audience (operators and entrepreneurs broadly), same architecture: in-person premium event tier above a free or low-priced front-end. Useful structural benchmark for the in-person cohort plus implementation model. Robbins runs the senior-tier in-person event at scale, and the architecture is repeatable for a 6-8 person operator cohort at your tier.</div>
+</div>
+
+<div class="market-row reveal">
+<div>
+<div class="market-name">Income School (Project 24)</div>
+<div class="market-price">Project 24 $499 first year · ~$249/year renewal</div>
+</div>
+<div class="market-note">Closest peer on subscription pricing in the blogging niche. No public premium tier above Project 24. Useful baseline: they run at substantially lower YouTube reach than you and price the recurring tier well below your $747 flagship. Your senior-tier ceiling is structurally above theirs because of the audience, the AI-native angle, and the press footprint.</div>
+</div>
+</div>
+
+<div class="market-callout reveal">
+Every name above runs a senior tier or pre-priced premium intake. $20K-$30K is achievable above Authority Hacker Pro's $2,597 anchor when the cohort is application-gated, capped at 6-8 verified-profitable operators, and includes two days in person plus 90-day implementation. None of them publicly own <strong>the combination of 193K YouTube subs, 4,700+ paying Skool members, ~412K monthly organic visits, and the Forbes-Business-Insider-Yahoo-Finance press footprint</strong>. The 7-Figure Blogger Operator Cohort is not invented. It's the slot the market already prices, just unfilled by you.
+</div>
+
+<div class="moat-callout reveal">
+<div class="moat-eyebrow">Your Moat, In One Sentence</div>
+<p>The AI-native, systems-first blogger. Not "passion blogging," not "SEO blogging." <strong>The operator who built a 193K subscriber audience and a 4,700-member paid Skool community by openly rejecting the passion-blog aesthetic, on a brand built around AI workflows and the calm-quiet-path-to-$10K positioning.</strong> Every newer operator launching a $497 AI-blogging program is running variations of the position you already own. The premium tier above all of them is not for someone copying the niche. It's for the operator who built the counter-positioning.</p>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">Asset Ownership</div>
+<h2 class="reveal">What Each YouTube-To-Skool Visitor Actually Produces</h2>
+<p class="section-sub reveal">Same YouTube traffic. Same IG audience. Same blog visitors. Different number of conversion events the asset triggers downstream once the ladder is built.</p>
+
+<div class="asset-table reveal">
+<div class="asset-row asset-header">
+<div></div>
+<div class="asset-col-label">Per visitor today</div>
+<div class="asset-col-label asset-built-label">Per visitor in this build</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">Email captured</div>
+<div class="asset-val asset-today">Yes (Income Launch Plan)</div>
+<div class="asset-val asset-built">Yes (consolidated TOFU, segmented)</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">Pre-purchase video bridge</div>
+<div class="asset-val asset-today">Only inside gated webinar</div>
+<div class="asset-val asset-built">8-12 min VSL on homepage</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">Pricing experience</div>
+<div class="asset-val asset-today">$747 vs $997 across domains</div>
+<div class="asset-val asset-built">Single published price</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">Premium cohort path</div>
+<div class="asset-val asset-today">None published</div>
+<div class="asset-val asset-built">7-Figure Blogger Operator Cohort live</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">Post-Blueprint continuity</div>
+<div class="asset-val asset-today">Stay in Skool or churn</div>
+<div class="asset-val asset-built">Cohort ascension or alumni community</div>
+</div>
+<div class="asset-row">
+<div class="asset-cat">After non-conversion</div>
+<div class="asset-val asset-today">Generic broadcast</div>
+<div class="asset-val asset-built">Score-banded nurture by operator-stage</div>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:linear-gradient(180deg,transparent 0%,rgba(201,151,58,.03) 50%,transparent 100%)">
+<div class="container">
+<div class="eyebrow reveal">The System</div>
+<h2 class="reveal">Four Levers We'd Pull With You</h2>
+<p class="section-sub reveal">Optimisation and ascension, not introduction. Every lever plugs into infrastructure you already operate. Nothing here asks you to rebuild the AI Income Blueprint, rebrand the YouTube channel, or move off Skool.</p>
+
+<div class="phase-block reveal">
+<div class="phase-num">Lever 01<span class="month">Month 1</span></div>
+<div class="phase-content">
+<h3>Consolidated TOFU + Homepage VSL + Segmented Nurture</h3>
+<p style="margin-bottom:14px">First month builds the three missing pieces of the front-end funnel: the consolidated TOFU page with one lead magnet and one published price, the 8-12 minute VSL on the adamenfroy.com homepage, and the segmented email infrastructure behind both. All three compound off audiences and traffic you already produce, no new acquisition spend yet.</p>
+<ul>
+<li>Consolidated /start or /blueprint TOFU page built: single lead magnet, single price, IG bio link rewired to it, YouTube end-card and description CTAs pointed at it</li>
+<li>8-12 minute VSL filmed and embedded above the adamenfroy.com homepage fold: calm-quiet-path opening, systems-first thesis, three case studies, curriculum walk-through, close into masterclass register</li>
+<li>Segmented email infrastructure: new-subscriber 8-email indoctrination flow into the AI Income Blueprint, behavioural trigger for masterclass watchers, re-engagement flow against unconverted opt-ins at 60 days</li>
+<li>Cross-platform tracking layer: YouTube to TOFU conversion rate, IG bio to email capture rate, TOFU to AI Income Blueprint attach rate, all in one dashboard</li>
+<li>Score-banded nurture for opt-ins who don't buy in 30 days: 8-12 emails segmented by their stated operator-stage (no site, early site, $1-5K/mo, $5K+/mo), each with the right curriculum lesson tied to their stage</li>
+<li>Pricing reconciliation across adamenfroy.com, launchto10k.com, and incomeblueprint.ai so the visitor sees one number regardless of entry point</li>
+<li>A/B test instrumentation built in from day one so we measure the lift, not hope for it</li>
+</ul>
+<div class="rev-line"><strong>Outcome</strong>Two new revenue lines (consolidated-TOFU AI Income Blueprint buyers plus VSL-converted homepage buyers from existing adamenfroy.com traffic) layered onto the existing Skool funnel. Conservative incremental lift compounds inside the funnel from week four onward, scaling further as Levers 02-04 ship.</div>
+</div>
+</div>
+
+<div class="phase-block reveal">
+<div class="phase-num">Lever 02<span class="month">Month 2</span></div>
+<div class="phase-content">
+<h3>Premium Tier Launch (7-Figure Blogger Operator Cohort)</h3>
+<p style="margin-bottom:14px">Lever 02 introduces the $20K-$30K 7-Figure Blogger Operator Cohort, positioned as the uprated version of the AI Income Blueprint. Application-only, capped at 6-8 verified-profitable operators per intake, quarterly cadence. Sold first to AI Income Blueprint alumni who have cleared the curriculum and hit $5K+/month from a live property. The first cohort lands the largest single revenue line in the build.</p>
+<ul>
+<li>7-Figure Blogger Operator Cohort positioning, sales page, and application flow built and live</li>
+<li>Application screening rubric calibrated to "AI Income Blueprint alumni or equivalent, $5K+/month or 6+ months of consistent traffic and revenue, ready for portfolio-scale operator decisions"</li>
+<li>90-day post-event implementation programme structured (bi-weekly group calls plus 1-on-1 strategic access)</li>
+<li>Outreach campaign to Skool alumni who've cleared the curriculum and want a senior tier</li>
+<li>First cohort dates locked at an Orlando or US-East venue, location confirmed once the cohort fills, run-of-show handled by the build team</li>
+<li>Two-day in-person intake, AV, catering, breakouts, including a live workflow session day-of</li>
+<li>Capstone deliverable each cohort member walks home with: a personal property-scaling blueprint plus 90-day implementation plan</li>
+</ul>
+<div class="rev-line"><strong>Revenue Model</strong>6-8 seats per cohort @ $20-$30K · 4 cohorts/year · Conservative incremental: ~$540-$960K/yr. Sells warm off the Skool 4,700+ alumni base.</div>
+</div>
+</div>
+
+<div class="phase-block reveal">
+<div class="phase-num">Lever 03<span class="month">Month 3</span></div>
+<div class="phase-content">
+<h3>Paid Acquisition Layer On Top Of Organic</h3>
+<p style="margin-bottom:14px">By Lever 03 the funnel converters are live (Lever 01) and the premium tier is producing case studies and revenue (Lever 02). Now the Lever 03 paid layer compounds against a funnel that converts measurably better than it did 90 days ago. Meta retargeting and YouTube pre-roll primary against your own audiences. LinkedIn for the Cohort tier specifically.</p>
+<ul>
+<li>Paid Meta retargeting against YouTube channel viewers and existing email list (warmest possible audiences)</li>
+<li>YouTube pre-roll against your own channel subscribers and IG follower base</li>
+<li>LinkedIn campaign for the 7-Figure Blogger Operator Cohort tier (operator audience, not consumer)</li>
+<li>Bank of 20-30 static and video ads written in your voice, shot in your existing studio aesthetic</li>
+<li>Daily creative iteration, weekly performance review, monthly budget reallocation</li>
+<li>UTM and pipeline attribution layered into the dashboard from Lever 01</li>
+</ul>
+<div class="rev-line"><strong>Revenue Model</strong>Compounds Lever 01 lift. Conservative ROAS 3-5x on retargeting against YouTube viewer / Skool buyer audiences. Spend scales with measured conversion, not hope.</div>
+</div>
+</div>
+
+<div class="phase-block reveal">
+<div class="phase-num">Lever 04<span class="month">Month 4+</span></div>
+<div class="phase-content">
+<h3>Retention + Ascension Loop</h3>
+<p style="margin-bottom:14px">Lever 04 closes the loop. The Skool alumni community produces continued revenue, referrals seed Cohort intake, and the retention layer feeds back into AI Income Blueprint renewals and Cohort applications. By month six the system runs on its own compound, with the build team in monitoring rather than build mode.</p>
+<ul>
+<li>Premium alumni community for AI Income Blueprint graduates ($97-$197/mo) with monthly programming, peer mastermind rooms, and Adam access on a published cadence</li>
+<li>Referral and affiliate structure for past AI Income Blueprint alumni to bring in next-cohort applicants and Blueprint buyers</li>
+<li>Repeat-buyer flow back into Cohort for alumni who've outgrown the AI Income Blueprint curriculum</li>
+<li>Quarterly "state of AI blogging" content drop to the alumni community, repurposed publicly afterwards</li>
+<li>Lifecycle email infrastructure across Blueprint, Cohort, alumni, and Skool segments</li>
+</ul>
+<div class="rev-line"><strong>Revenue Model</strong>Recurring monthly community at scale plus repeat-buyer revenue. Ramps month four onward, becomes the durability layer underneath the cohort revenue.</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container-narrow">
+<div class="eyebrow reveal">Sample</div>
+<h2 class="reveal">A Day Inside The 7-Figure Blogger Operator Cohort</h2>
+<p class="section-sub reveal">Day 1 of the in-person intake. Day 2 covers private breakouts, peer property reviews, and the 90-day implementation kickoff.</p>
+
+<div class="agenda-block reveal">
+<div class="agenda-item">
+<div class="agenda-time">9:00 AM</div>
+<div class="agenda-content">
+<h4>Open + The Frame</h4>
+<p>Why this room. Why the size. What every operator in here ships home with by Sunday night. Pre-market open optional, traffic dashboards on the wall.</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">9:30 AM</div>
+<div class="agenda-content">
+<h4>The Systems-First Operator Mindset</h4>
+<p>How a $5K/mo property breaks at $25K and what changes at $100K+/mo. Topical authority math, content velocity discipline, the difference between "publish more" and "compound right." The Adam Enfroy version of "what scales and what doesn't."</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">11:00 AM</div>
+<div class="agenda-content">
+<h4>Live Property Audits</h4>
+<p>Each operator brings a real domain. The room and Adam tear it apart. Topical cluster gaps, internal linking, AI-content quality scoring, monetisation mix, link velocity. Most useful 90 minutes most operators spend in a year.</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">1:30 PM</div>
+<div class="agenda-content">
+<h4>AI Workflow Selection At Property-Scale</h4>
+<p>What survives at $25K-$100K/mo versus what only works at $5K. The 15 AI frameworks Adam runs, applied across cohort-member portfolios, plus the prompt-stack upgrades that match each operator's niche and current scale.</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">3:00 PM</div>
+<div class="agenda-content">
+<h4>Live Workflow Session With Adam</h4>
+<p>The room watches Adam build a piece end-to-end for 90 minutes. Same prompts, same editorial review, same monetisation pass. No commentary cleanup, no editing layer, just the operating system in real time.</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">4:30 PM</div>
+<div class="agenda-content">
+<h4>Operator Roundtable</h4>
+<p>The room talks. No script. Each operator brings the one decision they're stuck on right now. Adam runs the room, the cohort gets answers.</p>
+</div>
+</div>
+<div class="agenda-item">
+<div class="agenda-time">5:30 PM</div>
+<div class="agenda-content">
+<h4>Day 1 Wrap + 30-Day Action Plan</h4>
+<p>Each operator drafts the 30-day plan tied to their current property scale. Day 2 turns plans into shipped work.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">Revenue Projection</div>
+<h2 class="reveal">What This Adds On Top Of What You Already Run</h2>
+<p class="section-sub reveal">Incremental year-one lift, layered on top of current AI Income Blueprint and Skool community revenue. None of these numbers cannibalise existing income lines.</p>
+
+<div class="rev-table reveal">
+<div class="rev-row">
+<div class="rev-stream"><strong>Lever 01: Consolidated TOFU + homepage VSL + segmented nurture</strong>VSL-converted Blueprint buyers plus consolidated-TOFU buyers from existing adamenfroy.com traffic</div>
+<div class="rev-amount">~$180,000+</div>
+</div>
+<div class="rev-row">
+<div class="rev-stream"><strong>Lever 02: 7-Figure Blogger Operator Cohort</strong>4 cohorts/yr · 6 seats avg @ $22,500</div>
+<div class="rev-amount">$540,000</div>
+</div>
+<div class="rev-row">
+<div class="rev-stream"><strong>Levers 03 + 04: Paid Layer + Alumni Community</strong>Ramps month 4-6 onward</div>
+<div class="rev-amount">upside</div>
+</div>
+<div class="rev-total">
+<div class="rev-total-label">Year-One Floor (Incremental)</div>
+<div class="rev-total-amount">~$720K</div>
+</div>
+<div class="rev-caveat"><strong>How we got here</strong>Conservative math: a consolidated TOFU page captures email at meaningfully higher rates than a fragmented multi-domain funnel, and an 8-12 min homepage VSL lifts cold-traffic Blueprint conversion against the current text-only adamenfroy.com page. 6-seat first cohort sits at the lower end of the $20-$30K range. Real numbers calibrate against your actual funnel volume on the call.</div>
+</div>
+
+<div class="rev-note reveal">
+This is <strong>incremental on top of</strong> your existing AI Income Blueprint and Skool revenue, not a replacement of either. Lever 01 compounds your current funnel through better front-end conversion. The 7-Figure Blogger Operator Cohort is a tier you don't currently sell publicly. The paid layer and alumni community are durability layers that ramp into year two.
+</div>
+
+<div class="rev-table premium-table reveal">
+<div class="premium-eyebrow">Premium-Only Ceiling</div>
+<p style="color:var(--muted);font-size:15px;margin-bottom:20px;max-width:none">Same plan, dialled up. Higher Lever 01 conversion lift, premium-tier Cohort pricing, paid layer running at scale by month six.</p>
+<div class="rev-row">
+<div class="rev-stream"><strong>Lever 01 (premium lift)</strong>VSL conversion at the upper end · consolidated TOFU at scale · deeper Blueprint attach rate</div>
+<div class="rev-amount">~$420,000+</div>
+</div>
+<div class="rev-row">
+<div class="rev-stream"><strong>7-Figure Blogger Operator Cohort (premium)</strong>4 cohorts/yr · 8 seats avg @ $30,000</div>
+<div class="rev-amount">$960,000</div>
+</div>
+<div class="rev-row">
+<div class="rev-stream"><strong>Alumni Community + Paid Layer (mature)</strong>Months 6-12 ramp</div>
+<div class="rev-amount">$220,000+</div>
+</div>
+<div class="rev-total">
+<div class="rev-total-label">Year-One Ceiling (Incremental)</div>
+<div class="rev-total-amount">~$1.6M</div>
+</div>
+<div class="rev-caveat"><strong>How we got here</strong>Premium math: stronger VSL lift (better script, sharper segmentation), 8-seat cohort at the top of the $30K range, alumni community at 1,000-1,500 paying members by month 12. Real numbers calibrate to your actual conversion baselines on the call.</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="eyebrow reveal">The Picture</div>
+<h2 class="reveal">Two Versions Of December 2026</h2>
+<p class="section-sub reveal">Same starting point. Same brand. Different operating system underneath.</p>
+
+<div class="contrast-grid">
+<div class="contrast-card current reveal">
+<div class="contrast-tag">If Nothing Changes</div>
+<h3>Q4 2026, Status Quo</h3>
+<ul>
+<li>AI Income Blueprint still selling steady on a text-only homepage, no VSL</li>
+<li>YouTube to checkout traffic still bouncing without a video bridge</li>
+<li>TOFU funnel still split across three domains and two prices</li>
+<li>No premium tier above the AI Income Blueprint</li>
+<li>Skool alumni still churning instead of ascending</li>
+<li>Newer $497 AI-blogging programmes continuing to cite your Income Reports back at you</li>
+</ul>
+</div>
+<div class="contrast-card future reveal">
+<div class="contrast-tag">If We Build This</div>
+<h3>Q4 2026, System Live</h3>
+<ul>
+<li>Homepage VSL on adamenfroy.com lifting cold-traffic conversion measurably</li>
+<li>Consolidated TOFU page capturing email at scale from IG, YT, press search</li>
+<li>Segmented nurture cycling Skool alumni into the Cohort and prospects into the Blueprint</li>
+<li>Two 7-Figure Blogger Operator Cohorts already run, third sold</li>
+<li>Alumni community billing recurring revenue every month</li>
+<li>Year-one incremental in the $720K-$1.6M+ range, conservative</li>
+<li>The premium tier above every $497 AI-blogging programme citing your work is yours, productised</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:linear-gradient(180deg,transparent 0%,rgba(201,151,58,.03) 50%,transparent 100%)">
+<div class="container">
+<div class="eyebrow reveal">Who's Building This</div>
+<h2 class="reveal">Operator-Led, Agent-Powered</h2>
+<p class="section-sub reveal">Direct accountability through Andrei. Backed by the most current AI agent stack on the market and a UK production network. The build moves at agent-velocity, not agency-velocity.</p>
+
+<div class="proof-grid">
+<div class="proof-card reveal">
+<h3>Andrei Givero</h3>
+<div class="role">Founder · AG1 Consulting</div>
+<p>UK-based operator. Background is direct-response copy, paid media, and high-ticket coaching launches. Specialty contributions: VSL scripting and production, segmented email infrastructure, paid retargeting against warm audiences, premium-tier launch architecture for operators with established flagship programmes. Direct point of accountability through the build, the launch, and the first revenue cycle.</p>
+</div>
+<div class="proof-card reveal">
+<h3>The AG1 Stack</h3>
+<div class="role">10+ AI Agents · Production Network</div>
+<p>AG1 ships with the most current AI agent stack on the market: 10+ purpose-built agents pre-deployed across VSL drafting, ad creative iteration, segmented email sequencing, audience research, copy review, and dashboard monitoring. Plus a UK-based production, editing, and paid-media network for the work that needs human hands. What takes a hand-rolled agency a quarter takes the AG1 stack a month, with the same operator on every call.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section style="background:linear-gradient(180deg,transparent 0%,rgba(201,151,58,.04) 50%,transparent 100%)">
+<div class="container">
+<div class="eyebrow reveal">Verified Client Results</div>
+<h2 class="reveal">Receipts, Not Headlines</h2>
+<p class="section-sub reveal">One client. Six months. Oct 2025 to Mar 2026. Numbers below pulled from Stripe and revenue-attribution dashboards, walked through live on the call.</p>
+
+<div class="results-grid">
+<div class="result-card reveal"><div class="result-stat">$742K+</div><div class="result-label">Revenue generated, one client, 6 months</div></div>
+<div class="result-card reveal"><div class="result-stat">+101%</div><div class="result-label">Gross volume growth vs. prior period</div></div>
+<div class="result-card reveal"><div class="result-stat">+72%</div><div class="result-label">Total revenue growth vs. prior period</div></div>
+<div class="result-card reveal"><div class="result-stat">$306K</div><div class="result-label">Succeeded payments, single client window</div></div>
+</div>
+
+<div class="proof-disclaimer reveal"><strong>Note</strong> · Client identity withheld under NDA. Live screenshots and source dashboards walked through on the call.</div>
+</div>
+</section>
+
+<section>
+<div class="container-narrow">
+<div class="eyebrow reveal">The Offer</div>
+<h2 class="reveal">Here's What Working Together Looks Like</h2>
+<p class="section-sub reveal">Scope is fixed. Everything ships in the first 90 days. No add-ons sold separately, no surprise line items, no scope creep.</p>
+
+<div class="offer-block reveal">
+<h3>Scope</h3>
+<p class="scope-intro">Everything below is in. No retainer until the system produces. We come in for a 90-day build, hand you a launched optimisation layer, and walk you through how to run it without us if you'd rather take it in-house from there.</p>
+<ul class="scope-list">
+<li>Lever 01 front-end build: consolidated TOFU page, 8-12 minute homepage VSL filmed and embedded, segmented nurture infrastructure, pricing reconciled across domains</li>
+<li>Lever 02 premium tier: 7-Figure Blogger Operator Cohort built, sales page live, first cohort sold off Skool alumni outreach</li>
+<li>Lever 03 paid layer: Meta + YouTube pre-roll + LinkedIn, 20-30 ad creatives in your voice, daily iteration</li>
+<li>Lever 04 retention loop: alumni community structure, referral architecture, repeat-buyer flows</li>
+<li>Application screening rubric and operator-fit scoring for the Cohort ($5K+/month live property gate)</li>
+<li>Two-day in-person Cohort event production for the first intake (Orlando or US-East, venue, AV, run-of-show)</li>
+<li>Conversion dashboard live from week one (cold-traffic conversion, TOFU opt-in rate, Blueprint attach rate, Cohort application rate, paid ROAS)</li>
+<li>VSL script written against your voice from the YouTube archive and your own quotes before filming</li>
+<li>All copy and creative reviewed against your published systems-first brand voice before publishing</li>
+<li>AG1's AI agent stack (10+ purpose-built agents) pre-deployed across the workflow: VSL drafting, ad iteration, email sequencing, audience research, copy review, dashboard monitoring</li>
+<li>Andrei on the calls through launch and the first full revenue cycle</li>
+</ul>
+<div class="price-note">Investment is set on the call once we agree the plan fits. No retainer until the system produces measurable lift.</div>
+</div>
+
+<div class="anti-hype reveal">
+<div class="anti-hype-eyebrow">What This Build Is Not</div>
+<ul class="anti-hype-list">
+<li>This is not an AI Income Blueprint rebuild. The product works, we don't touch the curriculum.</li>
+<li>This is not a YouTube content overhaul. Your channel cadence and voice stay where they are.</li>
+<li>This is not a "drop the systems-first positioning" play. The positioning is the moat. We build around it.</li>
+<li>This is not a six-figure-per-month-overnight pitch. The numbers above are conservative and they take a year to compound.</li>
+</ul>
+<p>What this build does promise is <strong>a homepage VSL on adamenfroy.com, a consolidated TOFU lead-magnet page, a premium Cohort tier sold first to your warmest Skool alumni, and a system you own end-to-end after 90 days</strong>. That's the floor. The ceiling and the durability layer ramp from there.</p>
+</div>
+</div>
+</section>
+
+<section style="background:linear-gradient(180deg,transparent 0%,rgba(201,151,58,.03) 50%,transparent 100%)">
+<div class="container-narrow">
+<div class="eyebrow reveal">Questions</div>
+<h2 class="reveal">The Ones An Operator At Your Stage Asks</h2>
+<p class="section-sub reveal">Short, direct answers. The longer ones we cover on the call.</p>
+
+<div class="reveal">
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why would I run this with an outside operator instead of in-house?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>Because the team you have is already running the business. The AI Income Blueprint is fulfilling and selling. YouTube is shipping weekly. The Skool community is running with weekly coaching. Adding a 90-day VSL build, a consolidated TOFU page, a premium Cohort tier, and a paid acquisition layer on top of an already-loaded team is how those projects either get postponed by a year or get launched at half the quality. Outside operator is faster, cleaner, and exits when production hits steady state. We hand the system to your team after the launch cycle, not before.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How much of my time does this need?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>One day to film the homepage VSL. One day to film the 7-Figure Blogger Operator Cohort positioning. Calendar holds for cohort delivery in Lever 02. The rest is build team work plus you reviewing the copy, creative, and pricing decisions before they ship. Most operators at your stage spend under 8 hours a month during the 90-day build, and under 2 hours a month after the system is in production.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Will the 7-Figure Blogger Operator Cohort cannibalise the AI Income Blueprint?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>No. The Cohort and Blueprint solve different problems. AI Income Blueprint is self-paced curriculum plus Skool community plus weekly coaching for operators earlier in the journey. The Cohort is strategic operating-room access for operators who already cleared the curriculum, hit $5K+/month from a live property, and are ready to scale a single site to $50K-$100K/month. Different deliverable, different audience, different buying motion. Most Cohort applicants will be Blueprint alumni moving up the ladder, not net-new buyers choosing Cohort over Blueprint. Where there's overlap, the Cohort is the explicit "post-Blueprint" tier. It expands the ladder, it doesn't compete inside it.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How does this work alongside the existing Skool community?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>Skool stays exactly as it is: the AI Income Blueprint curriculum plus the weekly coaching calls and 4,700+ member community. The Cohort is a senior tier above it, for the slice of Skool members who've outgrown the curriculum and want operator-level peer-room access. Where applicable, Cohort graduates can return to the Skool community as alumni mentors, completing the ladder. The two products complement, they don't overlap.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if my existing AI Income Blueprint already covers some of what the Cohort would?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>There's overlap on some content (AI workflows, content velocity, monetisation), but the deliverable is different. Blueprint is "we teach you the methodology." Cohort is "you've already proven $5K+/month, now we operate at peer-room scale, audit your live property, and scale to $50K-$100K/month with senior strategy." Most Cohort attendees will have already passed through Blueprint and outgrown the curriculum. The overlap is feature, not bug. Cohort buys insider continuity for operators who don't want to start from scratch with another educator.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">How quickly is there real revenue?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>Lever 01 homepage VSL: first measurable conversion lift in week 4-6 once the page ships. Consolidated TOFU page email capture: measurable in week 2-3 once IG bio link and YouTube CTAs rewire. Lever 02 first Cohort sells in month 2-3, runs in month 3-4. Lever 03 paid layer starts producing measurable ROAS by month 4. Lever 04 alumni community ramps from month 4 onward. Most of the year-one incremental lands in months 4-12, not month one.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if the Cohort doesn't fill?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>The Cohort is sized at 6-8 seats first, sold to existing AI Income Blueprint alumni (the warmest list for this offer that exists). If the first intake under-fills (say, 4 confirmed instead of 6), we don't push it into a half-empty room. We pause, sharpen the positioning and the application screen, push the date by 30-45 days, and try again with the second wave of alumni outreach plus any external warm sources we can verify. Build doesn't continue billing while the Cohort isn't running. If after a second attempt the audience isn't there at the modelled price, we restructure the tier or move the budget into Lever 03 paid acquisition.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">What if I want to stop after a Lever?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>You can stop at any Lever. After Lever 01 you own the consolidated TOFU page, the homepage VSL, and the segmented nurture as standalone lifts on your existing funnel. After Lever 02 you own the Cohort sales page, application flow, 90-day curriculum, and the first cohort revenue. After Lever 03 you own the paid acquisition system. Each Lever stands on its own as a fully shipped asset in case the rest stops being interesting to you.</p></div>
+</div>
+
+<div class="faq-item">
+<div class="faq-q" onclick="this.parentElement.classList.toggle('open')">Why AG1 and not a larger agency?<div class="faq-toggle"></div></div>
+<div class="faq-a"><p>Two reasons. First, the build is specific. Most agencies sell the same growth playbook to every client (more ads, more content, more funnels). The work here is precise: a homepage VSL, a consolidated TOFU lead-magnet, a premium Cohort tier launched off Skool alumni, a paid layer on top of an organic engine that already converts. Second, AG1 runs on the most current AI agent stack on the market: 10+ purpose-built agents pre-deployed across VSL drafting, ad creative iteration, segmented email sequencing, audience research, and copy review. The AG1 stack does in days what a 6-person hand-rolled agency does in weeks. You get the build velocity of a 10-person team with one direct point of accountability and no account-management layer between you and the work. If a larger agency is preferable after the call, that's a fair conversation. The plan above lands the same either way.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<div class="cta-section reveal">
+<div class="eyebrow">Next Step</div>
+<h2>Twenty Minutes. Four Topics.<br>You Decide From There.</h2>
+<p style="margin-bottom:24px">Here's exactly what we cover on the call, in order.</p>
+<div class="call-agenda">
+<div class="call-agenda-item"><span class="call-agenda-num">01</span><span class="call-agenda-text">Which leak point we touch first, calibrated to your team's current roadmap and the Blueprint sales cycle.</span></div>
+<div class="call-agenda-item"><span class="call-agenda-num">02</span><span class="call-agenda-text">7-Figure Blogger Operator Cohort sizing, pricing tier, and which slice of Skool alumni we'd target with the first intake outreach.</span></div>
+<div class="call-agenda-item"><span class="call-agenda-num">03</span><span class="call-agenda-text">Timing, kickoff date, and what your time commitment actually looks like over the 90-day build.</span></div>
+<div class="call-agenda-item"><span class="call-agenda-num">04</span><span class="call-agenda-text">What gets built, what stays in-house with your existing team, and what happens after the 90 days are up.</span></div>
+</div>
+<p style="margin-bottom:36px">The plan above is built around the funnel you already run. The numbers are conservative. The leak points are observable from outside. The only outstanding decision is whether the lift is worth a 20-minute conversation.</p>
+<a href="https://calendly.com/ag-copy/call-with-andrei" class="cta-primary" target="_blank">Book A Call</a>
+<div class="cta-sign">- Andrei | AG1 Consulting</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<p>Built by AG1 Consulting · This page was created exclusively for Adam Enfroy · April 2026</p>
+</div>
+</footer>
+
+<a href="https://calendly.com/ag-copy/call-with-andrei" target="_blank" class="floating-cta">Book A Call</a>
+
+<script>
+const obs=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('in')),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
+</script>
+</body>
+</html>
