@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Funnel Blueprint - For Adam - AG1</title>
+<meta name="description" content="Funnel Blueprint - built for Adam Enfroy by AG1 Consulting.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Funnel Blueprint - For Adam">
+<meta property="og:description" content="Part of the three-thing funnel-infrastructure plan and less-than-7-day install built for @adamenfroy by AG1 Consulting.">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<script defer data-domain="andrei170.github.io" src="https://plausible.io/js/script.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="docs.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-back"><span class="arrow">&larr;</span> Back to Hub</a>
+    <span class="nav-title">For Adam - AG1</span>
+  </div>
+</nav>
+
+<article class="doc">
+  <header class="doc-header">
+    <span class="doc-tag">Architecture</span>
+    <h1>Funnel Blueprint - Adam Enfroy</h1>
+  </header>
+
+  
+<p><strong>Prepared:</strong> 2026-05-16
+<strong>For:</strong> Adam Enfroy (@adamenfroy)
+<strong>Scope:</strong> Architecture diagram, tech stack, phase map, integration points, risk and mitigation. AG1 ships the funnel infrastructure layer that wraps the existing offers. The offers themselves do not change.</p>
+<hr />
+<h2>The current state architecture</h2>
+<pre><code>YouTube (193K)            Instagram (97K)         Blog SEO (adamenfroy.com)
+       |                         |                            |
+       +-----------+-------------+----------+-----------------+
+                   |                        |                 |
+                   v                        v                 v
+       Free Income Launch Plan (lead magnet, launchto10k.com/start)
+                   |
+                   v (301 redirect)
+       incomeblueprint.ai/training
+       2026 AI Masterclass (80-90 min training video)
+                   |
+                   v
+       Skool checkout (skool.com/ai-income-blueprint)
+       AI Income Blueprint - 747 USD Founding Member
+       282 active members
+       Weekly live calls with Adam
+                   |
+                   v
+       (no lane above the Skool tier)
+</code></pre>
+<p>Three things are missing on the architecture diagram:
+- No short bridge VSL on the Skool sales surface for warm traffic from YouTube + IG + podcast referrals
+- No application tier or scorecard above the 747 USD Skool community
+- No nurture sequence routing masterclass attendees and BGE legacy alumni into the application tier</p>
+<hr />
+<h2>The target state architecture (post-install)</h2>
+<pre><code>YouTube (193K)            Instagram (97K)         Blog SEO (adamenfroy.com)         BGE-legacy list
+       |                         |                            |                            |
+       +-----------+-------------+----------+-----------------+-----------+----------------+
+                   |                        |                                              |
+                   v                        v                                              |
+       Two primary CTAs side by side                                                       |
+       +-----------------+      +-----------------------+                                  |
+       | Skool join      |      | AI Blog Income Stage  |                                  |
+       | (Bridge VSL     |      | Scorecard             |                                  |
+       |  landing first) |      | (12 questions)        |                                  |
+       +-----------------+      +-----------------------+                                  |
+                   |                        |                                              |
+                   v                        v                                              |
+       Bridge VSL landing          Score reveal +                                          |
+       (5-9 min Adam-fronted)       3-line readout +                                       |
+       Skool checkout below         email capture                                          |
+                   |                        |                                              |
+                   |          +-------------+-------------+-------------+                  |
+                   |          |             |             |             |                  |
+                   |          v             v             v             v                  |
+                   |       Under 1k       1k-3k         3k-10k       10k-plus              |
+                   |          |             |             |             |                  |
+                   |          v             v             v             v                  |
+                   |    Skool checkout  Skool checkout  Skool tier  Application form       |
+                   |    (Stage 1)       (Stage 2)      review +    (Stage 4)               |
+                   |                                    Skool                              |
+                   v                                                                       |
+       Skool community                                                                     |
+       (747 USD Founding)                                                                  |
+                                                                                           |
+                                                                                           v
+       Cold masterclass funnel (unchanged)                          BGE-legacy migration sequence
+       incomeblueprint.ai/training                                  (5-touch over 10 days)
+                   |                                                            |
+                   v                                                            v
+       Self-segmenting opt-in question                              Application form
+       &quot;What stage are you at&quot;                                      (Stage 4)
+                   |                                                            |
+       +-----------+-----------+                                                |
+       |                       |                                                |
+       v                       v                                                |
+   Under 10k             Past 10k                                               |
+   (5-touch nurture      (5-touch nurture                                       |
+    into Skool)           into application form) ----------------+              |
+                                                                  |              |
+                                                                  v              v
+                                                    Application form (Stage 4)
+                                                                  |
+                                                                  v
+                                                    Calendly working session
+                                                                  |
+                                                                  v
+                                                    Build-with-you tier
+                                                    (Adam + Colin + AdamEnfroy.com team)
+                                                    Cycle-capped, application-gated
+</code></pre>
+<p>Four layers added underneath the existing assets:
+- Bridge VSL landing in front of the Skool checkout
+- Scorecard surface as a primary CTA alongside the Skool checkout
+- Application form on the 10k-plus branch
+- Two nurture sequences (post-masterclass self-segment + BGE-legacy migration) routing existing list assets into the application form</p>
+<p>The masterclass funnel at incomeblueprint.ai keeps running unchanged for cold-traffic opt-ins. The bridge VSL is for warm traffic that bypasses the masterclass. The scorecard is the second CTA on every surface for past-10k operators.</p>
+<hr />
+<h2>Phase map</h2>
+<h3>Phase 1 - Days 1 to 3 - Bridge VSL on Skool sales surface</h3>
+<p><strong>Goal:</strong> Convert warm YouTube + IG + podcast-referral traffic into Skool community joins at a meaningfully higher rate than the bare Skool surface.</p>
+<p><strong>Deliverables shipped:</strong>
+- Bridge VSL script written (the working version is <a href="vsl-preview.html">vsl-preview</a>)
+- Bridge VSL filmed in Adam's existing YouTube studio
+- Bridge VSL edited and uploaded
+- Landing page deployed with bridge VSL embed + Skool checkout below
+- YouTube end-card updated to point at the bridge landing
+- IG bio-link router updated
+- Podcast-referral pages updated
+- Pixel + GA4 tracking installed and firing
+- Test traffic confirms the bridge landing renders and the Skool checkout fires</p>
+<p><strong>Owner split:</strong>
+- AG1: script, landing page, tracking, router updates
+- Adam: VSL delivery (Adam-fronted, filmed in his studio)
+- Colin / AdamEnfroy team: Skool checkout confirmation, end-card update approval</p>
+<h3>Phase 2 - Days 4 to 7 - Application tier + scorecard + nurture sequences</h3>
+<p><strong>Goal:</strong> Open the lane above the 747 USD Skool community. Route past-10k operators to an application-gated build-with-you tier.</p>
+<p><strong>Deliverables shipped:</strong>
+- 12-question AI Blog Income Stage Scorecard live (ScoreApp or Typeform, sample uses Typeform ID <code>uTtFirS4</code>)
+- Score reveal + 3-line readout per stage + email capture wired
+- Application form for 10k-plus branch wired with Calendly routing
+- Application-tier landing page deployed (the working sample on this hub)
+- 5-touch post-masterclass nurture sequence routing self-segmenting attendees into application lane (Sequence A)
+- 5-touch BGE-legacy-alumni migration sequence routing historical buyers into application lane (Sequence B)
+- ESP segmentation logic confirmed (ConvertKit or similar)
+- Self-serve handoff doc shipped</p>
+<p><strong>Owner split:</strong>
+- AG1: scorecard build, application form, landing page, sequences, segmentation logic
+- Adam: weekly live Skool calls continue unchanged, plus a working-session block per cycle to review application accepts
+- Colin / AdamEnfroy team: application-tier fulfilment delivery, intake review, cycle management</p>
+<h3>Phase 3 - Post-install ongoing - Content compound</h3>
+<p><strong>Goal:</strong> Route existing YouTube + IG + blog content traffic into the scorecard and the bridge VSL.</p>
+<p><strong>Deliverables (Adam's timeline, not the install clock):</strong>
+- Monthly YouTube end-card update surfacing the scorecard CTA
+- 1-2 IG posts per week surfacing the scorecard as a stage-check tool
+- Optional Lane 03 (application-tier authority content) per <a href="content-strategy.html">content-strategy</a>
+- Quarterly intake review with AG1 to refine application-accept criteria and cycle cadence</p>
+<h3>Phase 4 - Post-install ongoing - On-brand paid traffic (future phase)</h3>
+<p><strong>Goal:</strong> Scale the warm-traffic conversion lift from Phase 1 + Phase 2 with paid retargeting and on-brand cold traffic.</p>
+<p><strong>Deliverables (future-phase scope, not Day-1 install):</strong>
+- Pixel + GA4 + retargeting tags installed and firing during Phase 1 + Phase 2
+- Top-performing organic YouTube videos boosted to existing scorecard + bridge VSL surfaces
+- Retargeting campaigns for bridge VSL landing-page abandons + scorecard quiz starts
+- Cold campaigns only to on-brand surfaces (scorecard, bridge VSL, masterclass funnel)
+- Future-phase scope conversation, not Day-1 install</p>
+<hr />
+<h2>Tech stack</h2>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Tool</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bridge VSL hosting</td>
+<td>YouTube (private) or Vimeo</td>
+<td>Existing infrastructure, no new tooling needed</td>
+</tr>
+<tr>
+<td>Bridge VSL landing</td>
+<td>Webflow or static HTML on a Vercel deploy</td>
+<td>Speed of build, no Skool-native constraint</td>
+</tr>
+<tr>
+<td>Skool checkout</td>
+<td>Skool native (unchanged)</td>
+<td>Adam and Colin already operate this</td>
+</tr>
+<tr>
+<td>Masterclass funnel</td>
+<td>incomeblueprint.ai (unchanged)</td>
+<td>Existing infrastructure, no migration</td>
+</tr>
+<tr>
+<td>Scorecard</td>
+<td>ScoreApp or Typeform (sample uses Typeform <code>uTtFirS4</code>)</td>
+<td>Application-form-grade quiz builder with branching logic</td>
+</tr>
+<tr>
+<td>Application form</td>
+<td>Typeform (same instance) or GHL form</td>
+<td>Routes to Calendly on submit</td>
+</tr>
+<tr>
+<td>Calendly</td>
+<td>Adam's existing Calendly or a Colin-managed instance</td>
+<td>Cycle-capped availability</td>
+</tr>
+<tr>
+<td>Email nurture</td>
+<td>ConvertKit (likely existing ESP) or GHL</td>
+<td>Segmentation logic, sequence routing</td>
+</tr>
+<tr>
+<td>Pixel + GA4</td>
+<td>Adam's existing analytics stack</td>
+<td>Phase 4 paid traffic prep</td>
+</tr>
+</tbody>
+</table>
+<p>No new tools required beyond the scorecard / quiz builder if Adam is not already on ScoreApp or Typeform.</p>
+<hr />
+<h2>Integration points</h2>
+<ul>
+<li><strong>Skool to bridge VSL landing:</strong> the bridge VSL landing routes to the Skool join URL directly. No middleware. Skool handles the checkout, the welcome email, the community access provisioning.</li>
+<li><strong>Masterclass funnel to nurture Sequence A:</strong> the masterclass opt-in form adds a self-segmenting question ("What stage are you at: under 1k a month, 1k-3k, 3k-10k, 10k-plus, or want done-with-you"). The ESP routes the 10k-plus and want-DWY respondents into Sequence A. The under-10k-plus respondents continue on the existing Skool-tier nurture.</li>
+<li><strong>BGE-legacy list to nurture Sequence B:</strong> the historical BGE buyer list (housed in Adam's existing ESP) gets segmented by purchase date and Sequence B is sent to the segment that bought BGE 2020-2024 and is not currently active in the Skool community.</li>
+<li><strong>Scorecard to application form:</strong> the 10k-plus score reveal page surfaces the application form inline (same page, no extra click). The application submission triggers a Calendly link via Typeform / GHL native integration.</li>
+<li><strong>Calendly to AdamEnfroy.com team:</strong> the application working session lands on Adam's calendar (or Colin's, depending on cycle), with the application responses pre-populated in the calendar event description.</li>
+</ul>
+<hr />
+<h2>Risk + mitigation</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bridge VSL conversion rate underperforms the bare Skool surface</td>
+<td>Low</td>
+<td>A/B test the bridge VSL landing vs the bare Skool surface for the first 30 days. If conversion is flat, refine the VSL script (Beat 3 and Beat 4 are the highest-leverage tuning points).</td>
+</tr>
+<tr>
+<td>Application tier oversells and the cycle cap fills too fast</td>
+<td>Medium</td>
+<td>Cycle cap is set by Adam and Colin, not AG1. Tightening the application criteria (raise the floor from 10k-plus to 15k-plus) reduces accept volume per cycle.</td>
+</tr>
+<tr>
+<td>BGE-legacy migration sequence creates blowback from inactive buyers</td>
+<td>Low-medium</td>
+<td>Sequence B opens with an honest acknowledgment of the BGE-to-AIB rebrand and an unsubscribe-friendly tone. Inactive buyers churn out of the list cleanly; active buyers self-select into the application lane.</td>
+</tr>
+<tr>
+<td>Skool tier conversion rate drops because warm traffic now bypasses the masterclass</td>
+<td>Low</td>
+<td>The bridge VSL pre-sells the Skool tier at conversion rates equal-to or higher-than the masterclass funnel for warm traffic. Cold traffic continues to flow through the masterclass funnel unchanged. The masterclass funnel does not lose traffic; the bridge adds a parallel lane.</td>
+</tr>
+<tr>
+<td>Application-tier fulfilment overwhelms Adam and Colin</td>
+<td>Medium</td>
+<td>Cycle cap controls intake volume. The first 1-2 cycles run small (3-5 accepts) to validate fulfilment capacity. Subsequent cycles scale to whatever Adam and Colin can deliver without compromising the Skool community's weekly call cadence.</td>
+</tr>
+<tr>
+<td>Scorecard underperforms as a routing tool</td>
+<td>Low</td>
+<td>The scorecard is a 12-question quiz with 4 segments. The questions are revenue-segmenting and stage-segmenting, not personality-driven. If routing is muddy, refine the question set in a Day 30 review.</td>
+</tr>
+<tr>
+<td>Pixel / GA4 tracking misfires and breaks Phase 4 paid-traffic prep</td>
+<td>Low</td>
+<td>AG1 installs tracking during Phase 1 + Phase 2 and validates fires before handoff. Phase 4 paid traffic is a future-phase scope conversation; tracking is in place when that scope opens.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>What the funnel does on Day 8</h2>
+<p>By the end of Day 7, the four layers are live. By Day 8 the funnel is producing:</p>
+<ul>
+<li>Warm YouTube + IG + podcast-referral traffic landing on the bridge VSL, converting to Skool joins at a meaningfully higher rate than the bare Skool surface</li>
+<li>Past-10k operators landing on the scorecard, routing into the application form, booking working sessions with Adam or Colin</li>
+<li>Masterclass attendees self-segmenting on opt-in, with 10k-plus and want-DWY respondents routing into Sequence A and the application tier</li>
+<li>BGE-legacy buyers receiving Sequence B and routing into the application tier</li>
+<li>The Skool community continues operating at 282 Founding Members and growing on its existing trajectory plus the warm-traffic lift</li>
+</ul>
+<p>By Day 30 the funnel has produced the first application-tier intake cycle, the first measurable bridge-VSL conversion-rate lift, and the first BGE-legacy migration cohort.</p>
+<p>By Day 90 the funnel has produced two-to-three application-tier cycles, a stable bridge-VSL conversion-rate baseline, and a cleaned BGE-legacy list segmented into "active reactivation" vs "churn out".</p>
+
+  <footer class="doc-footer">
+    <a href="index.html" class="doc-footer-link">Back to Hub</a>
+    <div class="doc-meta">Prepared 2026-05-16 &middot; Built for @adamenfroy</div>
+  </footer>
+</article>
+
+</body>
+</html>
